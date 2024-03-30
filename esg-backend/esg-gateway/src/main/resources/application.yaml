@@ -1,0 +1,31 @@
+server:
+  port: 1111
+
+spring:
+  application:
+    name: esg-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: gateway-service
+          uri: http://localhost:${server.port}
+          predicates:
+            - Path=/gateway/**
+          filters:
+              - PrefixPath=/api
+        - id: analysis-service
+          uri: http://localhost:2222
+          predicates:
+            - Path=/analysis/**
+          filters:
+              - PrefixPath=/api
+
+management:
+  endpoints:
+    web:
+      base-path: "/api/gateway/management"
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
