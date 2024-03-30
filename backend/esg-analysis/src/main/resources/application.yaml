@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: esg-analysis
+  data:
+    mongodb:
+      uri: "mongodb+srv://dimitarmilushev5:6I5KZfey8lXgc9mD@cluster0.zsm1i7z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+      database: esg_analysis
 
 management:
   endpoints:
