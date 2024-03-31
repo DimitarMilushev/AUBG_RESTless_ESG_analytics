@@ -1,4 +1,4 @@
-# Project Name: ESG Analytica
+# ESG Analytica
 
 ## Overview
 ESG Analytica is a cutting-edge application designed to revolutionize the way companies understand and act upon Environmental, Social, and Governance (ESG) reports. By leveraging advanced data analysis techniques and AI, our app provides personalized predictions on a company's future performance, sustainability practices, and governance, making it an indispensable tool for businesses aiming to thrive in today's eco-conscious market.
