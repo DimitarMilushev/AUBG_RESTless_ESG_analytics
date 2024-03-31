@@ -1,0 +1,68 @@
+<style>
+    .container {
+        margin-top: 200px;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 0px solid transparent;
+        padding: 8px;
+    }
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="position-relative">
+    <!-- shape Hero -->
+    <section class="section section-lg section-shaped pb-250">
+      <div class="shape shape-style-1 shape-default">
+        <div class="container py-lg-md d-flex">
+            <div class="col px-0">
+              <div class="row">
+                <div class="col-lg-6">
+                  <h1 class="display-3  text-white">ESG Reports List
+                  </h1>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+</div>
+<div class="container">
+    <span></span>
+    <table>
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Date of Report</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of reports">
+                <td>{{ report.title }}</td>
+                <td>{{ formatDate(report.dateCreated) }}</td>
+                <td>
+                    <button class="btn btn-icon btn-2 btn-primary" type="button" (click)="downloadReport(reports.link)">
+                        <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
