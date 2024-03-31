@@ -12,16 +12,16 @@ export class PersonalAnalysisComponent implements OnInit {
     labels: ["Male", "Female", "Other"],
     datasets: [{
       data: [60, 30, 10],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+      backgroundColor: ["#36A2EB", "#FF6384", "#FFCE56"],
       borderWidth: 1,
       borderColor: "#ffffff"
     }]
   };
   ethnicityData: ChartData = {
-    labels: ["Asian", "Black", "Hispanic", "White", "Other"],
+    labels: ["Asian", "African-American", "Hispanic", "Caucasian", "Other"],
     datasets: [{
       data: [20, 15, 10, 45, 10],
-      backgroundColor: ["#FF6384", "#4BC0C0", "#FFCE56", "#E7E9ED", "#36A2EB"]
+      backgroundColor: ["#FF6384", "#4BC0C0", "#FFCE56", "#800080", "#36A2EB"]
     }]
   };
 
@@ -48,8 +48,28 @@ export class PersonalAnalysisComponent implements OnInit {
       {
       type: 'pie',
       data: this.ethnicityData,
-      options: this.options
-    });
+      options: {
+        ...this.options,
+        plugins: {
+        legend: {
+          display: true,
+          position: 'bottom'
+        },
+        tooltip: {
+          callbacks: {
+          label: (context) => {
+            const label = context.label || '';
+            const value = context.parsed?.value || 0;
+            const total = context.dataset?.data.reduce((a: number, b: number) => a + b, 0) || 0;
+            const percentage = total > 0 ? ((value / total) * 100).toFixed(2) : 0;
+            return `${label}: ${percentage}%`;
+          }
+          }
+        }
+        }
+      }
+      }
+    );
   }
 
 
