@@ -8,10 +8,12 @@ import com.restless.esganalysis.models.enums.Continent;
 import com.restless.esganalysis.models.enums.Industry;
 import com.restless.esganalysis.models.enums.Size;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
+@AllArgsConstructor
 @Document
 @EqualsAndHashCode(callSuper = true)
 public class Company extends BaseEntity {
